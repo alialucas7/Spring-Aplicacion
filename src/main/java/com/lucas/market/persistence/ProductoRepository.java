@@ -11,5 +11,10 @@ public class ProductoRepository {
     public List<Producto> mostrarProductos(){
         return (List<Producto>) productoCrudRepository.findAll();
     }
-    
+
+    //funcion que ordena los parametros por categoria 
+    // de forma ascendente
+    public List<Producto> ordenarPorCategoria(int idCategoria){
+        return productoCrudRepository.findByIdCategoria(idCategoria);
+    }
 }
