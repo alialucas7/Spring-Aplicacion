@@ -3,7 +3,9 @@ package com.lucas.market.persistence.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name="clientes")
@@ -15,6 +17,9 @@ public class Cliente {
     private String apellidos;
     private Long celular;
     private String direccion;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Compra> compras; 
 
     @Column(name="correo_electronico")
     private String correoElectronico;

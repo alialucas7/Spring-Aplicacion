@@ -23,7 +23,11 @@ public class Producto {
 
     @Column(name = "cantidad_stock")
     private Integer cantidadStock;
-    private Bolean estado;
+    private Boolean estado;
+
+    @ManyToOne //de muchos a uno
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
 
     public Integer getIdProducto() {
         return idProducto;
@@ -73,11 +77,11 @@ public class Producto {
         this.cantidadStock = cantidadStock;
     }
 
-    public Bolean getEstado() {
+    public Boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(Bolean estado) {
+    public void setEstado(Boolean estado) {
         this.estado = estado;
     }
 
